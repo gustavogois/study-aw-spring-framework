@@ -1,13 +1,16 @@
-﻿.idea/**
-
-## File-based project format:
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
 *.iws
-
-## Plugin-specific files:
-
-# IntelliJ
-out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
+ 
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
