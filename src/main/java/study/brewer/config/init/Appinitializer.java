@@ -1,7 +1,10 @@
 package study.brewer.config.init;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import study.brewer.config.WebConfig;
+
+import javax.servlet.Filter;
 
 public class Appinitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -20,5 +23,14 @@ public class Appinitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         // receberá qualquer requisição de [nome_da_aplicação]/ para frente
         return new String[] {"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+
+        return new Filter[] { characterEncodingFilter };
     }
 }
